@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-	    <groupId>org.springframework.boot</groupId>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.7.RELEASE</version>
-	</parent>
-	<groupId>com.goodness</groupId>
-	<artifactId>cboot</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>cboot</name>
-	<description>cboot Spring Boot</description>
+    </parent>
+    <groupId>com.goodness</groupId>
+    <artifactId>cboot</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>cboot</name>
+    <description>cboot Spring Boot</description>
 
-	 
+
 
 
     <properties>
@@ -117,12 +117,12 @@
         </dependency>
 
 
-       <!--  <dependency>
-            <groupId>com.lz.ht</groupId>
-            <artifactId>htcodeplayer</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency> -->
+        <!--  <dependency>
+             <groupId>com.lz.ht</groupId>
+             <artifactId>htcodeplayer</artifactId>
+             <version>1.0-SNAPSHOT</version>
+             <scope>compile</scope>
+         </dependency> -->
         <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -142,8 +142,20 @@
             <artifactId>freemarker</artifactId>
             <version>2.3.22</version>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
 
-	 
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.10</version>
+        </dependency>
+
+
 
     </dependencies>
 
@@ -162,12 +174,12 @@
                 </includes>
             </resource>
         </resources>
-<!--        <plugins>-->
-<!--        <plugin>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--        </plugin>-->
-<!--        </plugins>-->
+        <!--        <plugins>-->
+        <!--        <plugin>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-maven-plugin</artifactId>-->
+        <!--        </plugin>-->
+        <!--        </plugins>-->
     </build>
 
 </project>

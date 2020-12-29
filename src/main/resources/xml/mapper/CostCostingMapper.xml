@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lz.ht.dao.CostCostingMapper">
+  <resultMap id="BaseResultMap" type="com.lz.ht.model.CostCosting">
+    <id column="costing_id" jdbcType="INTEGER" property="costingId" />
+    <result column="costing_project" jdbcType="VARCHAR" property="costingProject" />
+    <result column="costing_child_project" jdbcType="VARCHAR" property="costingChildProject" />
+    <result column="costing_unitprice" jdbcType="DECIMAL" property="costingUnitprice" />
+    <result column="costing_amount" jdbcType="VARCHAR" property="costingAmount" />
+    <result column="costing_money" jdbcType="VARCHAR" property="costingMoney" />
+    <result column="costing_workmatter" jdbcType="VARCHAR" property="costingWorkmatter" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    costing_id, costing_project, costing_child_project, costing_unitprice, costing_amount, 
+    costing_money, costing_workmatter
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cost_costing
+    where costing_id = #{costingId,jdbcType=INTEGER}
+  </select>
+
+  <select id="findAll"   resultMap="BaseResultMap">
+        select * from  cost_costing t
+  </select>
+
+  <select id="findById"   resultMap="BaseResultMap"  parameterType="java.lang.Integer" >
+        select * from  cost_costing t  WHERE costing_id = #{costingId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cost_costing
+    where costing_id = #{costingId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="costing_id" keyProperty="costingId" parameterType="com.lz.ht.model.CostCosting" useGeneratedKeys="true">
+    insert into cost_costing (costing_project, costing_child_project, 
+      costing_unitprice, costing_amount, costing_money, 
+      costing_workmatter)
+    values (#{costingProject,jdbcType=VARCHAR}, #{costingChildProject,jdbcType=VARCHAR}, 
+      #{costingUnitprice,jdbcType=DECIMAL}, #{costingAmount,jdbcType=VARCHAR}, #{costingMoney,jdbcType=VARCHAR}, 
+      #{costingWorkmatter,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="costing_id" keyProperty="costingId" parameterType="com.lz.ht.model.CostCosting" useGeneratedKeys="true">
+    insert into cost_costing
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="costingProject != null">
+        costing_project,
+      </if>
+      <if test="costingChildProject != null">
+        costing_child_project,
+      </if>
+      <if test="costingUnitprice != null">
+        costing_unitprice,
+      </if>
+      <if test="costingAmount != null">
+        costing_amount,
+      </if>
+      <if test="costingMoney != null">
+        costing_money,
+      </if>
+      <if test="costingWorkmatter != null">
+        costing_workmatter,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="costingProject != null">
+        #{costingProject,jdbcType=VARCHAR},
+      </if>
+      <if test="costingChildProject != null">
+        #{costingChildProject,jdbcType=VARCHAR},
+      </if>
+      <if test="costingUnitprice != null">
+        #{costingUnitprice,jdbcType=DECIMAL},
+      </if>
+      <if test="costingAmount != null">
+        #{costingAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="costingMoney != null">
+        #{costingMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="costingWorkmatter != null">
+        #{costingWorkmatter,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lz.ht.model.CostCosting">
+    update cost_costing
+    <set>
+      <if test="costingProject != null">
+        costing_project = #{costingProject,jdbcType=VARCHAR},
+      </if>
+      <if test="costingChildProject != null">
+        costing_child_project = #{costingChildProject,jdbcType=VARCHAR},
+      </if>
+      <if test="costingUnitprice != null">
+        costing_unitprice = #{costingUnitprice,jdbcType=DECIMAL},
+      </if>
+      <if test="costingAmount != null">
+        costing_amount = #{costingAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="costingMoney != null">
+        costing_money = #{costingMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="costingWorkmatter != null">
+        costing_workmatter = #{costingWorkmatter,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where costing_id = #{costingId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lz.ht.model.CostCosting">
+    update cost_costing
+    set costing_project = #{costingProject,jdbcType=VARCHAR},
+      costing_child_project = #{costingChildProject,jdbcType=VARCHAR},
+      costing_unitprice = #{costingUnitprice,jdbcType=DECIMAL},
+      costing_amount = #{costingAmount,jdbcType=VARCHAR},
+      costing_money = #{costingMoney,jdbcType=VARCHAR},
+      costing_workmatter = #{costingWorkmatter,jdbcType=VARCHAR}
+    where costing_id = #{costingId,jdbcType=INTEGER}
+  </update>
+  <select id="findByID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from cost_costing
+    where costing_id = #{costingId,jdbcType=INTEGER}
+  </select>
+</mapper>
